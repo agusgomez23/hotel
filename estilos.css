@@ -1,0 +1,238 @@
+
+.flex-containera {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    bottom margin: 10px;
+    padding: 10px;
+    font-size: 30px;
+    background-image: url(banner.jpg) 
+    
+}
+
+
+.contenedorsecciones {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(101, 89, 192, 0.555), rgb(13, 9, 68));
+    margin: 5px;
+    padding: 5px;  
+}
+
+/* Estilo de la lista */
+ul {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+}
+
+/* Estilo de los elementos li */
+ul li {
+    list-style: none;
+    margin: 0 15px;
+    transition: 0.4s;
+}
+
+/* Estilo de los links dentro de la lista */
+ul li a {
+    display: block;
+    text-decoration: none;
+    position: relative;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(7, 0, 0);
+    font-size: 15px;
+    padding: 6px;
+    transition: 0.4s;
+
+}
+
+/* Al pasar el mouse sobre la LISTA */
+ul:hover li a {
+    transform: scale(1.2);
+    opacity: 0.7;
+    filter: blur(1px);
+}
+
+/* Al pasar el mouse sobre un LINK dentro de la lista */
+ul li a:hover { 
+    transform: scale(1.7);  /* Zoom */
+    opacity: 1;
+    filter: blur(0px);
+}
+
+/* Al ENTRAR con el mouse sobre a link dentro de la lista */
+ul li a:before { 
+    content: "";
+    position: absolute; /*Respecto de la caja del link*/
+    top: 0px;
+    left: 0px;
+    background: rgb(255, 255, 255);
+    width: 100%;        /*Respecto de la caja del link*/
+    height: 100%;       /*Respecto de la caja del link*/
+    transition: 0.4s;
+    transform-origin: right;
+    transform: scaleX(1.1);  /* Zoom */
+    z-index: -1;       /* Por detrás del texto del link*/
+}
+
+.body {
+    background-color: rgb(155, 215, 229);}
+.flex-containersecciones {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-between
+}
+
+
+.flex-containersecciones {
+    color: rgb(0, 0, 0);
+    margin: 10px;
+    padding: 20px;
+    font-size: 20px;
+    border: 8px double rgb(34, 34, 34)
+}
+
+/*header*/
+.flex-containerh {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-between
+}
+
+
+.flex-containerh {
+    color: rgb(1, 2, 0);
+    margin: 10px;
+    padding: 20px;
+    font-size: 20px;
+    
+}
+
+.flex-containerv {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: rgb(156, 222, 231);
+    margin: 10px;
+    padding: 20px;            
+}
+
+/*article nuestro hotel*/
+.flex-containerv{
+    color: rgb(2, 27, 11);
+    background-color: rgb(231, 240, 238);
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+    border: 4px solid rgba(0, 0, 0, 0)
+}
+
+.contenedor_formulario {
+    width: 600px;
+    border-radius: 40px;
+    box-shadow: 0 0 3px grey;
+    padding: 40px;
+    box-sizing: border-box;
+    height: max-content;
+}
+
+/*Nuevo*/
+.padre{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 10px;
+   
+}
+
+/* Propiedades Flexbox pero de los elementos hijos:
+Estás propiedades las aplicaremos a los div que se encuentran dentro del contenedor padre.
+order:; Ordena los elementos hijos según el número que tu le designes.
+flex-grow:; Especifica el factor de crecimiento de un elemento flexible. Se especifica qué cantidad de espacio debe ocupar el elemento dentro del contenedor flexible. Si todos los elementos tienen flex-grow 1, el espacio restante se distribuye entre los elementos.
+flex-shrink:; Si utilizamos esta propiedad con valor «0» el elemento hijo no podrá hacerse más pequeño que su ancho establecido.
+flex-basis:; Con esta propiedad podemos especificar el tamaño inicial que tendrá un elemento hijo.
+flex:1 1 auto; Es la propiedad resumida de flex-grow, flex-shrink y flex-basis, generalmente se utiliza con la unidad «1 1 auto».
+align-self: auto | flex-start | flex-end | center | baseline | stretch;
+Con aling-self podemos posicionar solo un elemento hijo, generando así diferentes posiciones para cada elemento.
+*/
+.header, .articulo, .izquierda, .derecha, .footer{
+    flex-grow: 1;     /* Todo crece hasta ocupar el ancho disponible */
+    flex-basis: 100%; /* Tamaño por defecto: 100% */
+    padding: 10px;
+
+    .img {
+        width: auto;
+        height: auto;
+      }
+}
+
+/* media queries */
+/* tamaño tablet */
+@media all and (min-width: 600px){
+    .aside {
+        /* flex: <flex-grow> <flex-shrink> <flex-basis> */
+        flex: 1 1 auto; /* <flex-grow> <flex-shrink> <flex-
+        basis>*/
+    }
+    .img {
+        width: auto;
+        height: auto;
+      }
+}
+
+/* tamaño pc */
+@media all and (min-width: 800px){
+    .articulo{flex:2 0;}  /* <flex-grow> <flex-shrink> */
+    .izquierda{order: 1;}
+    .articulo{order: 2;}
+    .derecha{order: 3;}
+    .footer{order: 4;}
+}
+/* For mobile phones: */
+[class*="col-"] {
+    width: 100%;
+  }
+  
+  @media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+  }
+  
+/* Algunos colores */
+.header{background: #581845; color:white}
+.articulo{background: #01020e}
+.izquierda{background: #01020e;color:white}
+.derecha{background: #01020e;color:white}
+.footer{background: #DAF7A6}
+
+.social{
+    /*las imágenes usadas tienen width de 48px*/
+    width:88px;
+    position:fixed;
+    top:50px;
+    right:0;
+}
+.social{
+    /*border:1px solid #000;*/
+    top:50%;
+    height:148px;
+    /*para poner height 192 deberíamos haber indicado en el reset de estilos font-size:0;*/
+    margin-top:-100px;
+}
